@@ -13,10 +13,10 @@ I'm a sophomore at bennett university
 
 My research interests are in multimodal language models and llm agents.
 
-Previously I have worked on:
+## Previously I have worked on:
 
---LLM fine tuning
---Diffusion models
---Neural Gaussian fields
---ComfyUI/regional prompter 
---RLHF
+### --LLM fine tuning
+### --Diffusion models
+### --Neural Gaussian fields
+### --ComfyUI/regional prompter 
+### --RLHF
