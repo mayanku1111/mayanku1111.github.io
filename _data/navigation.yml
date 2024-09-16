@@ -8,9 +8,12 @@ main:
   - title: "Research works"
     url: /publications/    
 
-  - title: "Portfolio"
+ - title: "Portfolio"
     url: /portfolio/
-        
+
+  - title: "CV"
+    url: /files/Resume.pdf
+
   - title: "Blogs"
     url: /year-archive/
     
