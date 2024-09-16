@@ -12,6 +12,8 @@ redirect_from:
 I'm a sophomore at bennett university 
 
 My research interests are in multimodal language models and llm agents.
+I am super interested in making language models learn complexities from 
+less data and can do reasoning like human brain.(Fan of Chain of thought)
 
 ## Previously I have worked on:
 
