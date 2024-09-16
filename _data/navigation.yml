@@ -8,7 +8,7 @@ main:
   - title: "Research works"
     url: /publications/    
 
- - title: "Portfolio"
+  - title: "Portfolio"
     url: /portfolio/
 
   - title: "CV"
