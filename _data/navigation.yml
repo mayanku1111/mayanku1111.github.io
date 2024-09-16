@@ -8,11 +8,11 @@ main:
   - title: "Projects"
     url: /publications/    
 
-  - title: "CV"
-    url: /portfolio/
-
-  # - title: "CV"
+  # - title: "Portfolio"
   #   url: /portfolio/
+
+  - title: "CV"
+    url: /cv/
 
   # - title: "Blogs"
   #   url: /year-archive/
