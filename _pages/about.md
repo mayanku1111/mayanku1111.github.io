@@ -14,5 +14,6 @@ language models and diffusion models.
 
 ## Open source contributions
 
-will update soon
+will update it soon
+
 
