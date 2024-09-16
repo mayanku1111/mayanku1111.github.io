@@ -5,15 +5,15 @@
 # prevent it from being included in the site.
 
 main:
-  - title: "Research works"
+  - title: "Projects"
     url: /publications/    
 
-  - title: "Portfolio"
-    url: /portfolio/
+  # - title: "Portfolio"
+  #   url: /portfolio/
 
   - title: "CV"
     url: /files/paper1.pdf
 
-  - title: "Blogs"
-    url: /year-archive/
+  # - title: "Blogs"
+  #   url: /year-archive/
     

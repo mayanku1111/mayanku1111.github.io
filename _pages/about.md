@@ -20,3 +20,8 @@ My research interests are in multimodal language models and llm agents.
 ### --Neural Gaussian fields
 ### --ComfyUI/regional prompter 
 ### --RLHF
+
+## University groups
+
+### BAIS(Bennett Artificial Intelligence Society)
+(2023-Now)
