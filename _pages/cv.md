@@ -8,7 +8,7 @@ redirect_from:
 
 {% include base_path %}
 
-[view PDF](assets/Mayank-kumar-CV.pdf)
+[view PDF](/assets/Mayank-kumar-CV.pdf)
 
 Education
 ======
@@ -19,7 +19,7 @@ Education
 Work experience
 ======
 * August 2024-Now: Machine Learning Engineer
-  * Oryx AI(Standord based stealth startup)
+  * Oryx AI(Stanford based stealth startup)
 
 * August 2024-Now: Research Internship
   * National University of Singapore(Remote)
