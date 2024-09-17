@@ -8,7 +8,7 @@ redirect_from:
 
 {% include base_path %}
 
-[view PDF](files/paper1.pdf)
+[view PDF](assets/Mayank-kumar-CV.pdf)
 
 Education
 ======
