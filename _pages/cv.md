@@ -1,6 +1,5 @@
 ---
 layout: archive
-title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,6 +7,8 @@ redirect_from:
 ---
 
 {% include base_path %}
+
+[view PDF](files/paper1.pdf)
 
 Education
 ======
