@@ -8,6 +8,7 @@ redirect_from:
 
 {% include base_path %}
 
+
 [view PDF](/assets/Mayank-kumar-CV.pdf)
 
 Education
