@@ -3,8 +3,7 @@ layout: archive
 permalink: /cv/
 author_profile: true
 redirect_from:
-  - /resume
-redirect_to: /assets/Mayank Kumar (3).pdf  
+  - /resume 
 ---
 
 {% include base_path %}
