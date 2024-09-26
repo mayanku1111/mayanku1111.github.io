@@ -1,4 +1,4 @@
----
+<!-- ---
 title: "Conversational Character LLM"
 collection: publications
 category: manuscripts
@@ -9,4 +9,4 @@ excerpt: 'This repo is about creating creating character.ai like conversational 
 
 [Conversational Character LLM](https://github.com/mayanku1111/web-character-ai)
 
-'This repo is about creating creating character.ai like conversational character AI with options of fine tuning and contextual adaptation'
+'This repo is about creating creating character.ai like conversational character AI with options of fine tuning and contextual adaptation' -->
