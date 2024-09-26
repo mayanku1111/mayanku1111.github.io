@@ -4,12 +4,13 @@ permalink: /cv/
 author_profile: true
 redirect_from:
   - /resume
+redirect_to: /assets/Mayank Kumar.pdf  
 ---
 
 {% include base_path %}
 
 
-[view PDF](/assets/Mayank Kumar.pdf)
+[View PDF](/assets/Mayank Kumar.pdf)
 
 Education
 ======
