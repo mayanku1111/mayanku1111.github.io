@@ -9,7 +9,7 @@ redirect_from:
 {% include base_path %}
 
 
-[View PDF](/assets/Mayank%20Kumar%20(4).pdf)
+[View PDF](/assets/Mayank_Kumar_CV.pdf)
 
 Education
 ======
