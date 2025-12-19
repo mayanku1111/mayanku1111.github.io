@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mayank — Systems & ML Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #00ff9f;
+        --secondary: #ff006e;
+        --tertiary: #7b2ff7;
+        --bg-dark: #0a0e1a;
+        --bg-darker: #050810;
+        --text-primary: #e0e6f0;
+        --text-secondary: #8892b0;
+        --accent-glow: rgba(0, 255, 159, 0.3);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "JetBrains Mono", monospace;
+        background: var(--bg-darker);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Animated background grid */
+      .grid-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            rgba(0, 255, 159, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(rgba(0, 255, 159, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 0;
+        animation: gridScroll 20s linear infinite;
+      }
+
+      @keyframes gridScroll {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(50px);
+        }
+      }
+
+      /* Floating particles */
+      .particles {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .particle {
+        position: absolute;
+        background: var(--primary);
+        border-radius: 50%;
+        opacity: 0.1;
+        animation: float linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) scale(0);
+          opacity: 0;
+        }
+        50% {
+          opacity: 0.3;
+        }
+        100% {
+          transform: translateY(-100vh) scale(1);
+          opacity: 0;
+        }
+      }
+
+      /* Container */
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Navigation */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1.5rem 0;
+        background: rgba(5, 8, 16, 0.9);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0, 255, 159, 0.1);
+        z-index: 100;
+        transition: all 0.3s ease;
+      }
+
+      nav.scrolled {
+        padding: 1rem 0;
+        border-bottom-color: rgba(0, 255, 159, 0.3);
+      }
+
+      nav .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 0 0 20px var(--accent-glow);
+        cursor: pointer;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 80px;
+        position: relative;
+      }
+
+      .hero-content {
+        text-align: center;
+        z-index: 2;
+      }
+
+      .glitch-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .hero h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 5rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary),
+          var(--tertiary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease infinite;
+        letter-spacing: -2px;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .terminal-text {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+      }
+
+      .terminal-text span {
+        color: var(--primary);
+      }
+
+      .cta-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        border: 2px solid var(--primary);
+        background: transparent;
+        color: var(--primary);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--primary);
+        transition: left 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn:hover {
+        color: var(--bg-dark);
+        border-color: var(--primary);
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      .btn:hover::before {
+        left: 0;
+      }
+
+      .btn.secondary {
+        border-color: var(--secondary);
+        color: var(--secondary);
+      }
+
+      .btn.secondary::before {
+        background: var(--secondary);
+      }
+
+      /* Section Styles */
+      section {
+        padding: 8rem 0;
+        position: relative;
+      }
+
+      .section-header {
+        margin-bottom: 4rem;
+        text-align: center;
+      }
+
+      .section-header h2 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-header h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--secondary),
+          transparent
+        );
+      }
+
+      .section-header p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      #about {
+        background: linear-gradient(
+          180deg,
+          var(--bg-darker) 0%,
+          var(--bg-dark) 100%
+        );
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        color: var(--text-secondary);
+      }
+
+      .about-text .highlight {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .tech-stack {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .tech-item {
+        padding: 1rem;
+        background: rgba(0, 255, 159, 0.05);
+        border: 1px solid rgba(0, 255, 159, 0.2);
+        border-radius: 8px;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .tech-item:hover {
+        background: rgba(0, 255, 159, 0.1);
+        border-color: var(--primary);
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px var(--accent-glow);
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background: rgba(10, 14, 26, 0.6);
+        border: 1px solid rgba(0, 255, 159, 0.2);
+        border-radius: 12px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 255, 159, 0.1),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .project-card:hover::before {
+        left: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 10px 40px var(--accent-glow);
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .project-card h3 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .project-type {
+        font-size: 0.8rem;
+        color: var(--secondary);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0.3rem 0.8rem;
+        background: rgba(255, 0, 110, 0.1);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 0, 110, 0.3);
+      }
+
+      .project-card p {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+        background: rgba(123, 47, 247, 0.2);
+        color: var(--tertiary);
+        border-radius: 15px;
+        border: 1px solid rgba(123, 47, 247, 0.3);
+      }
+
+      .project-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .project-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+      }
+
+      .project-link:hover {
+        text-shadow: 0 0 10px var(--accent-glow);
+      }
+
+      /* Experience Timeline */
+      .timeline {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          var(--primary),
+          var(--secondary),
+          var(--tertiary)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 4rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .timeline-item:nth-child(odd) {
+        flex-direction: row-reverse;
+      }
+
+      .timeline-content {
+        width: 45%;
+        padding: 2rem;
+        background: rgba(10, 14, 26, 0.6);
+        border: 1px solid rgba(0, 255, 159, 0.2);
+        border-radius: 12px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .timeline-content:hover {
+        border-color: var(--primary);
+        box-shadow: 0 5px 30px var(--accent-glow);
+        transform: scale(1.02);
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border: 3px solid var(--bg-dark);
+        border-radius: 50%;
+        box-shadow: 0 0 20px var(--accent-glow);
+      }
+
+      .timeline-content h3 {
+        font-family: "Orbitron", sans-serif;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-content .company {
+        color: var(--secondary);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-content .date {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+
+      .timeline-content p {
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Contact Section */
+      #contact {
+        background: linear-gradient(
+          180deg,
+          var(--bg-dark) 0%,
+          var(--bg-darker) 100%
+        );
+      }
+
+      .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-text {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 3rem;
+        line-height: 1.8;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .social-link {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        color: var(--primary);
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        inset: -2px;
+        border-radius: 50%;
+        background: var(--primary);
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 0.3s ease;
+      }
+
+      .social-link:hover {
+        color: var(--bg-dark);
+        transform: translateY(-5px);
+      }
+
+      .social-link:hover::before {
+        opacity: 1;
+      }
+
+      .contact-email {
+        font-size: 1.5rem;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-block;
+        padding: 1rem 2rem;
+        border: 2px solid var(--primary);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-email:hover {
+        background: var(--primary);
+        color: var(--bg-dark);
+        box-shadow: 0 0 30px var(--accent-glow);
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(0, 255, 159, 0.1);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
+        .hero h1 {
+          font-size: 3rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .tech-stack {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline::before {
+          left: 0;
+        }
+
+        .timeline-item {
+          flex-direction: column !important;
+          align-items: flex-start;
+        }
+
+        .timeline-content {
+          width: 100%;
+          margin-left: 2rem;
+        }
+
+        .timeline-marker {
+          left: 0;
+          transform: translateX(0);
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+
+      /* Scroll animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Custom Cursor Effect */
+      .cursor-glow {
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--accent-glow) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+        mix-blend-mode: screen;
+        z-index: 9999;
+        transition: opacity 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Effects -->
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="container">
+        <div class="logo" onclick="scrollToTop()">MAYANK</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="glitch-wrapper">
+            <h1>MAYANK UPADHYAY</h1>
+          </div>
+          <p class="terminal-text">
+            <span>$</span> systems_engineer --expertise=ml
+            --focus=infrastructure
+          </p>
+          <p class="terminal-text">
+            Building intelligent systems at the intersection of code and
+            computation
+          </p>
+          <div class="cta-buttons">
+            <a href="#projects" class="btn">View Projects</a>
+            <a href="#contact" class="btn secondary">Get in Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2>About Me</h2>
+          <p>Architecting scalable systems and intelligent solutions</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm a <span class="highlight">systems engineer</span> and
+              <span class="highlight">machine learning practitioner</span>
+              passionate about building robust, scalable infrastructure that
+              powers intelligent applications.
+            </p>
+            <p>
+              My work spans distributed systems, deep learning infrastructure,
+              and performance optimization. I believe in writing clean,
+              maintainable code and designing systems that can evolve with
+              changing requirements.
+            </p>
+            <p>
+              When I'm not architecting systems or training models, you'll find
+              me exploring new frameworks, contributing to open source, or
+              diving deep into research papers on computer architecture and ML
+              optimization.
+            </p>
+            <div class="tech-stack">
+              <div class="tech-item">Python</div>
+              <div class="tech-item">C++</div>
+              <div class="tech-item">Go</div>
+              <div class="tech-item">PyTorch</div>
+              <div class="tech-item">TensorFlow</div>
+              <div class="tech-item">CUDA</div>
+              <div class="tech-item">Kubernetes</div>
+              <div class="tech-item">Docker</div>
+              <div class="tech-item">AWS</div>
+            </div>
+          </div>
+          <div class="about-visual">
+            <svg width="100%" height="400" viewBox="0 0 400 400">
+              <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop
+                    offset="0%"
+                    style="stop-color: rgb(0, 255, 159); stop-opacity: 0.8"
+                  />
+                  <stop
+                    offset="100%"
+                    style="stop-color: rgb(255, 0, 110); stop-opacity: 0.8"
+                  />
+                </linearGradient>
+              </defs>
+              <!-- Animated geometric shapes -->
+              <circle
+                cx="200"
+                cy="200"
+                r="80"
+                fill="none"
+                stroke="url(#grad1)"
+                stroke-width="2"
+                opacity="0.3"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 200 200"
+                  to="360 200 200"
+                  dur="20s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle
+                cx="200"
+                cy="200"
+                r="120"
+                fill="none"
+                stroke="url(#grad1)"
+                stroke-width="2"
+                opacity="0.2"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="360 200 200"
+                  to="0 200 200"
+                  dur="15s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle
+                cx="200"
+                cy="200"
+                r="160"
+                fill="none"
+                stroke="url(#grad1)"
+                stroke-width="2"
+                opacity="0.1"
+              >
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 200 200"
+                  to="360 200 200"
+                  dur="25s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <!-- Central node -->
+              <circle cx="200" cy="200" r="5" fill="#00ff9f">
+                <animate
+                  attributeName="r"
+                  values="5;8;5"
+                  dur="2s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <!-- Orbital nodes -->
+              <circle cx="280" cy="200" r="3" fill="#ff006e">
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 200 200"
+                  to="360 200 200"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle cx="120" cy="200" r="3" fill="#7b2ff7">
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 200 200"
+                  to="360 200 200"
+                  dur="10s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle cx="200" cy="120" r="3" fill="#00ff9f">
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 200 200"
+                  to="360 200 200"
+                  dur="12s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2>Projects & Research</h2>
+          <p>Selected work in systems engineering and machine learning</p>
+        </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Distributed Training Framework</h3>
+              <span class="project-type">Infrastructure</span>
+            </div>
+            <p>
+              Built a scalable distributed training framework for large language
+              models using PyTorch DDP and custom CUDA kernels, achieving 3x
+              speedup in training time across 8-GPU clusters.
+            </p>
+            <div class="project-tags">
+              <span class="tag">PyTorch</span>
+              <span class="tag">CUDA</span>
+              <span class="tag">Distributed Systems</span>
+              <span class="tag">Performance</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">→ View Code</a>
+              <a href="#" class="project-link">→ Read Paper</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Neural Architecture Search</h3>
+              <span class="project-type">Research</span>
+            </div>
+            <p>
+              Developed an efficient NAS algorithm using evolutionary strategies
+              and knowledge distillation, reducing search time by 60% while
+              maintaining model accuracy on ImageNet.
+            </p>
+            <div class="project-tags">
+              <span class="tag">AutoML</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">Research</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">→ View Code</a>
+              <a href="#" class="project-link">→ Read Paper</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Real-time Inference Engine</h3>
+              <span class="project-type">Production</span>
+            </div>
+            <p>
+              Designed and deployed a low-latency inference engine for computer
+              vision models, handling 10K+ requests/sec with <20ms p99 latency
+              using TensorRT and custom model optimizations.
+            </p>
+            <div class="project-tags">
+              <span class="tag">TensorRT</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">Production</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">→ View Code</a>
+              <a href="#" class="project-link">→ Case Study</a>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>ML Pipeline Orchestrator</h3>
+              <span class="project-type">Tools</span>
+            </div>
+            <p>
+              Created a declarative ML pipeline orchestration system with
+              automatic experiment tracking, resource optimization, and failure
+              recovery for reproducible research workflows.
+            </p>
+            <div class="project-tags">
+              <span class="tag">MLOps</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Go</span>
+              <span class="tag">DevOps</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">→ View Code</a>
+              <a href="#" class="project-link">→ Documentation</a>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>GPU Memory Optimizer</h3>
+              <span class="project-type">Research</span>
+            </div>
+            <p>
+              Implemented gradient checkpointing and mixed-precision training
+              strategies that reduced GPU memory footprint by 40% while
+              maintaining model convergence and accuracy.
+            </p>
+            <div class="project-tags">
+              <span class="tag">CUDA</span>
+              <span class="tag">Memory Management</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">Performance</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">→ View Code</a>
+              <a href="#" class="project-link">→ Benchmarks</a>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="project-card">
+            <div class="project-header">
+              <h3>Federated Learning System</h3>
+              <span class="project-type">Research</span>
+            </div>
+            <p>
+              Built a privacy-preserving federated learning framework with
+              differential privacy guarantees and secure aggregation protocols
+              for decentralized model training.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Privacy</span>
+              <span class="tag">Distributed ML</span>
+              <span class="tag">Cryptography</span>
+              <span class="tag">Research</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link">→ View Code</a>
+              <a href="#" class="project-link">→ Read Paper</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p>Building the future, one system at a time</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Senior ML Infrastructure Engineer</h3>
+              <div class="company">TechCorp AI</div>
+              <div class="date">2023 - Present</div>
+              <p>
+                Leading the design and implementation of distributed training
+                infrastructure for large-scale language models. Architected
+                auto-scaling systems that reduced training costs by 35% while
+                improving throughput by 2x.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Machine Learning Engineer</h3>
+              <div class="company">AI Research Lab</div>
+              <div class="date">2021 - 2023</div>
+              <p>
+                Developed and deployed computer vision models for real-time
+                object detection and tracking. Optimized inference pipelines
+                achieving 5x speed improvements through model quantization and
+                custom CUDA kernels.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Research Intern</h3>
+              <div class="company">University ML Lab</div>
+              <div class="date">2020 - 2021</div>
+              <p>
+                Conducted research on neural architecture search and automated
+                machine learning. Published findings in top-tier conferences and
+                contributed to open-source AutoML frameworks.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Software Engineering Intern</h3>
+              <div class="company">Cloud Systems Inc</div>
+              <div class="date">2019 - 2020</div>
+              <p>
+                Built microservices for distributed data processing using Go and
+                Kubernetes. Implemented monitoring and observability solutions
+                for production systems handling millions of requests daily.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2>Get In Touch</h2>
+          <p>Let's build something amazing together</p>
+        </div>
+        <div class="contact-content">
+          <p class="contact-text">
+            I'm always interested in hearing about new projects, research
+            collaborations, or opportunities to work on challenging problems at
+            the intersection of systems and ML. Feel free to reach out!
+          </p>
+          <div class="social-links">
+            <a
+              href="https://github.com/mayanku1111"
+              class="social-link"
+              target="_blank"
+              title="GitHub"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              class="social-link"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+            <a
+              href="https://twitter.com/yourhandle"
+              class="social-link"
+              target="_blank"
+              title="Twitter"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                />
+              </svg>
+            </a>
+            <a
+              href="mailto:your.email@example.com"
+              class="social-link"
+              title="Email"
+            >
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"
+                />
+              </svg>
+            </a>
+          </div>
+          <a href="mailto:mayank@example.com" class="contact-email"
+            >mayank@example.com</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          &copy; 2025 Mayank Upadhyay. Built with code, caffeine, and curiosity.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Particle system
+      function createParticles() {
+        const particlesContainer = document.getElementById("particles");
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+          const particle = document.createElement("div");
+          particle.className = "particle";
+          particle.style.left = Math.random() * 100 + "%";
+          particle.style.width = Math.random() * 3 + 1 + "px";
+          particle.style.height = particle.style.width;
+          particle.style.animationDuration = Math.random() * 20 + 10 + "s";
+          particle.style.animationDelay = Math.random() * 5 + "s";
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Custom cursor glow effect
+      const cursorGlow = document.getElementById("cursorGlow");
+      document.addEventListener("mousemove", (e) => {
+        cursorGlow.style.left = e.clientX - 150 + "px";
+        cursorGlow.style.top = e.clientY - 150 + "px";
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Scroll to top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Initialize
+      createParticles();
+
+      // Glitch effect on hero text (optional enhancement)
+      const heroTitle = document.querySelector(".hero h1");
+      setInterval(() => {
+        if (Math.random() > 0.95) {
+          heroTitle.style.textShadow = `
+                    ${Math.random() * 10 - 5}px ${
+            Math.random() * 10 - 5
+          }px 0 rgba(255, 0, 110, 0.7),
+                    ${Math.random() * 10 - 5}px ${
+            Math.random() * 10 - 5
+          }px 0 rgba(0, 255, 159, 0.7)
+                `;
+          setTimeout(() => {
+            heroTitle.style.textShadow = "none";
+          }, 50);
+        }
+      }, 2000);
+    </script>
+  </body>
+</html>
