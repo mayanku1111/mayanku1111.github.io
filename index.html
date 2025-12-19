@@ -3,23 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mayank — Systems & ML Engineer</title>
+    <title>Mayank Kumar — ML Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
         --primary: #00ff9f;
-        --secondary: #ff006e;
-        --tertiary: #7b2ff7;
+        --secondary: #00d9ff;
+        --tertiary: #ff006e;
         --bg-dark: #0a0e1a;
         --bg-darker: #050810;
         --text-primary: #e0e6f0;
         --text-secondary: #8892b0;
-        --accent-glow: rgba(0, 255, 159, 0.3);
+        --accent-glow: rgba(0, 255, 159, 0.2);
+        --accent-blue: rgba(0, 217, 255, 0.2);
       }
 
       * {
@@ -29,7 +30,7 @@
       }
 
       body {
-        font-family: "JetBrains Mono", monospace;
+        font-family: "IBM Plex Mono", monospace;
         background: var(--bg-darker);
         color: var(--text-primary);
         overflow-x: hidden;
@@ -129,14 +130,18 @@
       }
 
       .logo {
-        font-family: "Orbitron", sans-serif;
-        font-size: 1.5rem;
-        font-weight: 900;
+        font-family: "Space Mono", monospace;
+        font-size: 1.3rem;
+        font-weight: 700;
         color: var(--primary);
         text-transform: uppercase;
-        letter-spacing: 3px;
-        text-shadow: 0 0 20px var(--accent-glow);
+        letter-spacing: 4px;
         cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .logo:hover {
+        color: var(--secondary);
       }
 
       .nav-links {
@@ -195,31 +200,17 @@
       }
 
       .hero h1 {
-        font-family: "Orbitron", sans-serif;
-        font-size: 5rem;
-        font-weight: 900;
+        font-family: "Space Mono", monospace;
+        font-size: 4.5rem;
+        font-weight: 700;
         margin-bottom: 1rem;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--secondary),
-          var(--tertiary)
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: gradientShift 3s ease infinite;
-        letter-spacing: -2px;
+        color: var(--text-primary);
+        letter-spacing: -1px;
+        line-height: 1.1;
       }
 
-      @keyframes gradientShift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
+      .hero h1 .highlight {
+        color: var(--primary);
       }
 
       .terminal-text {
@@ -247,8 +238,8 @@
         text-decoration: none;
         text-transform: uppercase;
         letter-spacing: 2px;
-        font-family: "JetBrains Mono", monospace;
-        font-size: 0.9rem;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.85rem;
         font-weight: 600;
         cursor: pointer;
         position: relative;
@@ -287,6 +278,10 @@
         background: var(--secondary);
       }
 
+      .btn.secondary:hover {
+        box-shadow: 0 0 20px var(--accent-blue);
+      }
+
       /* Section Styles */
       section {
         padding: 8rem 0;
@@ -299,29 +294,25 @@
       }
 
       .section-header h2 {
-        font-family: "Orbitron", sans-serif;
-        font-size: 3rem;
+        font-family: "Space Mono", monospace;
+        font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 1rem;
         color: var(--primary);
         position: relative;
         display: inline-block;
+        text-transform: uppercase;
+        letter-spacing: 2px;
       }
 
       .section-header h2::after {
         content: "";
         position: absolute;
         bottom: -10px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100px;
-        height: 3px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          var(--secondary),
-          transparent
-        );
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
       }
 
       .section-header p {
@@ -436,10 +427,11 @@
       }
 
       .project-card h3 {
-        font-family: "Orbitron", sans-serif;
-        font-size: 1.5rem;
+        font-family: "Space Mono", monospace;
+        font-size: 1.3rem;
         color: var(--primary);
         margin-bottom: 0.5rem;
+        font-weight: 700;
       }
 
       .project-type {
@@ -448,9 +440,9 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding: 0.3rem 0.8rem;
-        background: rgba(255, 0, 110, 0.1);
+        background: rgba(0, 217, 255, 0.1);
         border-radius: 20px;
-        border: 1px solid rgba(255, 0, 110, 0.3);
+        border: 1px solid rgba(0, 217, 255, 0.3);
       }
 
       .project-card p {
@@ -469,10 +461,10 @@
       .tag {
         font-size: 0.75rem;
         padding: 0.3rem 0.8rem;
-        background: rgba(123, 47, 247, 0.2);
-        color: var(--tertiary);
+        background: rgba(0, 255, 159, 0.15);
+        color: var(--primary);
         border-radius: 15px;
-        border: 1px solid rgba(123, 47, 247, 0.3);
+        border: 1px solid rgba(0, 255, 159, 0.3);
       }
 
       .project-links {
@@ -505,12 +497,7 @@
         transform: translateX(-50%);
         width: 2px;
         height: 100%;
-        background: linear-gradient(
-          180deg,
-          var(--primary),
-          var(--secondary),
-          var(--tertiary)
-        );
+        background: linear-gradient(180deg, var(--primary), var(--secondary));
       }
 
       .timeline-item {
@@ -553,9 +540,10 @@
       }
 
       .timeline-content h3 {
-        font-family: "Orbitron", sans-serif;
+        font-family: "Space Mono", monospace;
         color: var(--primary);
         margin-bottom: 0.5rem;
+        font-weight: 700;
       }
 
       .timeline-content .company {
@@ -762,18 +750,18 @@
       <div class="container">
         <div class="hero-content">
           <div class="glitch-wrapper">
-            <h1>MAYANK UPADHYAY</h1>
+            <h1>MAYANK <span class="highlight">KUMAR</span></h1>
           </div>
           <p class="terminal-text">
-            <span>$</span> systems_engineer --expertise=ml
-            --focus=infrastructure
+            <span>$</span> ml_researcher --focus=llm_alignment
+            --expertise=multimodal_systems
           </p>
           <p class="terminal-text">
-            Building intelligent systems at the intersection of code and
-            computation
+            NLP • Post-training • Hardware-aligned optimizations for LLMs • 3D
+            Computer Vision
           </p>
           <div class="cta-buttons">
-            <a href="#projects" class="btn">View Projects</a>
+            <a href="#projects" class="btn">View Research</a>
             <a href="#contact" class="btn secondary">Get in Touch</a>
           </div>
         </div>
@@ -784,39 +772,50 @@
     <section id="about" class="fade-in">
       <div class="container">
         <div class="section-header">
-          <h2>About Me</h2>
-          <p>Architecting scalable systems and intelligent solutions</p>
+          <h2>About</h2>
+          <p>
+            Researcher at the intersection of deep learning and system
+            optimization
+          </p>
         </div>
         <div class="about-content">
           <div class="about-text">
             <p>
-              I'm a <span class="highlight">systems engineer</span> and
-              <span class="highlight">machine learning practitioner</span>
-              passionate about building robust, scalable infrastructure that
-              powers intelligent applications.
+              I'm a
+              <span class="highlight"
+                >BTech student in Computer Science with AI specialization</span
+              >
+              at Bennett University (CGPA: 9.0/10), deeply focused on advancing
+              machine learning systems through rigorous research and practical
+              implementation.
             </p>
             <p>
-              My work spans distributed systems, deep learning infrastructure,
-              and performance optimization. I believe in writing clean,
-              maintainable code and designing systems that can evolve with
-              changing requirements.
+              My research spans
+              <span class="highlight">LLM alignment and calibration</span>,
+              multimodal sentiment analysis, 3D computer vision with NeRFs and
+              Gaussian Splatting, and hardware-aligned optimizations for large
+              language models. I've contributed to published work on adaptive
+              compute-efficient learning and sparse-view 3D reconstruction.
             </p>
             <p>
-              When I'm not architecting systems or training models, you'll find
-              me exploring new frameworks, contributing to open source, or
-              diving deep into research papers on computer architecture and ML
-              optimization.
+              Currently, I'm working on
+              <span class="highlight"
+                >LLM reasoning for medical applications</span
+              >
+              at IIT Bombay Trust Lab, researching model calibration at Cohere
+              Labs, and developing custom CUDA kernels for LLM inference
+              optimization at Mercity.
             </p>
             <div class="tech-stack">
               <div class="tech-item">Python</div>
               <div class="tech-item">C++</div>
-              <div class="tech-item">Go</div>
               <div class="tech-item">PyTorch</div>
-              <div class="tech-item">TensorFlow</div>
               <div class="tech-item">CUDA</div>
-              <div class="tech-item">Kubernetes</div>
+              <div class="tech-item">TensorFlow</div>
+              <div class="tech-item">HuggingFace</div>
+              <div class="tech-item">TensorRT</div>
+              <div class="tech-item">LangChain</div>
               <div class="tech-item">Docker</div>
-              <div class="tech-item">AWS</div>
             </div>
           </div>
           <div class="about-visual">
@@ -829,7 +828,7 @@
                   />
                   <stop
                     offset="100%"
-                    style="stop-color: rgb(255, 0, 110); stop-opacity: 0.8"
+                    style="stop-color: rgb(0, 217, 255); stop-opacity: 0.8"
                   />
                 </linearGradient>
               </defs>
@@ -898,7 +897,7 @@
                 />
               </circle>
               <!-- Orbital nodes -->
-              <circle cx="280" cy="200" r="3" fill="#ff006e">
+              <circle cx="280" cy="200" r="3" fill="#00d9ff">
                 <animateTransform
                   attributeName="transform"
                   type="rotate"
@@ -908,7 +907,7 @@
                   repeatCount="indefinite"
                 />
               </circle>
-              <circle cx="120" cy="200" r="3" fill="#7b2ff7">
+              <circle cx="120" cy="200" r="3" fill="#00ff9f">
                 <animateTransform
                   attributeName="transform"
                   type="rotate"
@@ -918,7 +917,7 @@
                   repeatCount="indefinite"
                 />
               </circle>
-              <circle cx="200" cy="120" r="3" fill="#00ff9f">
+              <circle cx="200" cy="120" r="3" fill="#00d9ff">
                 <animateTransform
                   attributeName="transform"
                   type="rotate"
@@ -938,52 +937,56 @@
     <section id="projects" class="fade-in">
       <div class="container">
         <div class="section-header">
-          <h2>Projects & Research</h2>
-          <p>Selected work in systems engineering and machine learning</p>
+          <h2>Research & Projects</h2>
+          <p>Publications, ongoing research, and technical implementations</p>
         </div>
         <div class="projects-grid">
           <!-- Project 1 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>Distributed Training Framework</h3>
-              <span class="project-type">Infrastructure</span>
+              <h3>EDLFCN: Multimodal Sentiment Analysis</h3>
+              <span class="project-type">Research</span>
             </div>
             <p>
-              Built a scalable distributed training framework for large language
-              models using PyTorch DDP and custom CUDA kernels, achieving 3x
-              speedup in training time across 8-GPU clusters.
+              Developed a multi-scale fusion architecture with adaptive modality
+              weighting for multimodal sentiment analysis. Created a robust
+              framework that effectively handles noisy and incongruent data in
+              real-world scenarios by integrating a disentangled language focus
+              model to address modality incongruence.
             </p>
             <div class="project-tags">
-              <span class="tag">PyTorch</span>
-              <span class="tag">CUDA</span>
-              <span class="tag">Distributed Systems</span>
-              <span class="tag">Performance</span>
+              <span class="tag">Multimodal Learning</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Under Review</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">→ View Code</a>
-              <a href="#" class="project-link">→ Read Paper</a>
+              <a href="https://github.com/mayanku1111" class="project-link"
+                >→ View on GitHub</a
+              >
             </div>
           </div>
 
           <!-- Project 2 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>Neural Architecture Search</h3>
-              <span class="project-type">Research</span>
+              <h3>Differential Attention NeRF for 3D CT</h3>
+              <span class="project-type">Published</span>
             </div>
             <p>
-              Developed an efficient NAS algorithm using evolutionary strategies
-              and knowledge distillation, reducing search time by 60% while
-              maintaining model accuracy on ImageNet.
+              Created a novel method for efficient Sparse-View X-ray 3D
+              Reconstruction using Differential ReAttention, ConvNeXt
+              V2-inspired convolutions, and a Gated U-Net. Achieved linear
+              computational complexity O(N) for large-scale 3D reconstruction.
+              Submitted to Computing Conference 2026, London.
             </p>
             <div class="project-tags">
-              <span class="tag">AutoML</span>
-              <span class="tag">Deep Learning</span>
+              <span class="tag">3D Vision</span>
+              <span class="tag">NeRF</span>
+              <span class="tag">Medical Imaging</span>
               <span class="tag">Optimization</span>
-              <span class="tag">Research</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">→ View Code</a>
               <a href="#" class="project-link">→ Read Paper</a>
             </div>
           </div>
@@ -991,92 +994,100 @@
           <!-- Project 3 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>Real-time Inference Engine</h3>
-              <span class="project-type">Production</span>
+              <h3>Adaptive Compute Efficient Learning</h3>
+              <span class="project-type">AAAI-26</span>
             </div>
             <p>
-              Designed and deployed a low-latency inference engine for computer
-              vision models, handling 10K+ requests/sec with <20ms p99 latency
-              using TensorRT and custom model optimizations.
+              Developed adaptive compute-efficient learning methods via
+              conceptual-criticality analysis. Accepted as Student Abstract at
+              AAAI-26, Singapore (December 2025). Research focused on optimizing
+              computational resources during training through intelligent sample
+              selection.
             </p>
             <div class="project-tags">
-              <span class="tag">TensorRT</span>
-              <span class="tag">Computer Vision</span>
+              <span class="tag">Efficient ML</span>
+              <span class="tag">AAAI</span>
               <span class="tag">Optimization</span>
-              <span class="tag">Production</span>
+              <span class="tag">Conference</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">→ View Code</a>
-              <a href="#" class="project-link">→ Case Study</a>
+              <a href="#" class="project-link">→ View Publication</a>
             </div>
           </div>
 
           <!-- Project 4 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>ML Pipeline Orchestrator</h3>
-              <span class="project-type">Tools</span>
+              <h3>LLM Debate via GRPO Training</h3>
+              <span class="project-type">Research</span>
             </div>
             <p>
-              Created a declarative ML pipeline orchestration system with
-              automatic experiment tracking, resource optimization, and failure
-              recovery for reproducible research workflows.
+              Trained Qwen 2.5 1.5B using self-play training based on Group
+              Relative Policy Optimization (GRPO) to improve debating skills.
+              Evaluated using round-robin tournament judged by model instances,
+              enabling the model to learn from its own comparisons and improve
+              argumentative capabilities.
             </p>
             <div class="project-tags">
-              <span class="tag">MLOps</span>
-              <span class="tag">Kubernetes</span>
-              <span class="tag">Go</span>
-              <span class="tag">DevOps</span>
+              <span class="tag">LLM Alignment</span>
+              <span class="tag">RLHF</span>
+              <span class="tag">Self-Play</span>
+              <span class="tag">Reasoning</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">→ View Code</a>
-              <a href="#" class="project-link">→ Documentation</a>
+              <a href="https://github.com/mayanku1111" class="project-link"
+                >→ View Code</a
+              >
             </div>
           </div>
 
           <!-- Project 5 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>GPU Memory Optimizer</h3>
-              <span class="project-type">Research</span>
+              <h3>Deep Research Agent with MCP</h3>
+              <span class="project-type">Tool</span>
             </div>
             <p>
-              Implemented gradient checkpointing and mixed-precision training
-              strategies that reduced GPU memory footprint by 40% while
-              maintaining model convergence and accuracy.
+              Built an intelligent deep research agent that autonomously
+              conducts web research and generates follow-up queries. Integrated
+              Model Context Protocol (MCP) tools into a Next.js interface with
+              multi-node LangGraph architecture featuring LLM invocation, tool
+              execution, and validation steps. Used Exa API for web queries.
             </p>
             <div class="project-tags">
-              <span class="tag">CUDA</span>
-              <span class="tag">Memory Management</span>
-              <span class="tag">Optimization</span>
-              <span class="tag">Performance</span>
+              <span class="tag">LangChain</span>
+              <span class="tag">MCP</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">AI Agents</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">→ View Code</a>
-              <a href="#" class="project-link">→ Benchmarks</a>
+              <a href="https://github.com/mayanku1111" class="project-link"
+                >→ View Demo</a
+              >
             </div>
           </div>
 
           <!-- Project 6 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>Federated Learning System</h3>
-              <span class="project-type">Research</span>
+              <h3>ikshana: Speech to Sign Language</h3>
+              <span class="project-type">Stanford</span>
             </div>
             <p>
-              Built a privacy-preserving federated learning framework with
-              differential privacy guarantees and secure aggregation protocols
-              for decentralized model training.
+              Developed an automated speech-to-sign language system at Oryx AI
+              (Stanford stealth startup). Worked on sequence models, speech
+              recognition, and 3D sign language motion datasets. Implemented
+              MLOps frameworks and AWS SageMaker pipelines for model deployment
+              and monitoring.
             </p>
             <div class="project-tags">
-              <span class="tag">Privacy</span>
-              <span class="tag">Distributed ML</span>
-              <span class="tag">Cryptography</span>
-              <span class="tag">Research</span>
+              <span class="tag">Speech Recognition</span>
+              <span class="tag">3D Motion</span>
+              <span class="tag">Accessibility</span>
+              <span class="tag">MLOps</span>
             </div>
             <div class="project-links">
-              <a href="#" class="project-link">→ View Code</a>
-              <a href="#" class="project-link">→ Read Paper</a>
+              <a href="#" class="project-link">→ Learn More</a>
             </div>
           </div>
         </div>
@@ -1088,20 +1099,21 @@
       <div class="container">
         <div class="section-header">
           <h2>Experience</h2>
-          <p>Building the future, one system at a time</p>
+          <p>Research positions and community contributions</p>
         </div>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Senior ML Infrastructure Engineer</h3>
-              <div class="company">TechCorp AI</div>
-              <div class="date">2023 - Present</div>
+              <h3>Research Internship</h3>
+              <div class="company">IIT Bombay Trust Lab</div>
+              <div class="date">December 2025 - Present</div>
               <p>
-                Leading the design and implementation of distributed training
-                infrastructure for large-scale language models. Architected
-                auto-scaling systems that reduced training costs by 35% while
-                improving throughput by 2x.
+                Beginning research on LLM reasoning for medical applications
+                under the supervision of Mukul Joshi. Focusing on improving
+                reasoning capabilities of language models in specialized medical
+                contexts, working on prompt engineering and fine-tuning
+                strategies for healthcare domain adaptation.
               </p>
             </div>
           </div>
@@ -1109,14 +1121,15 @@
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Machine Learning Engineer</h3>
-              <div class="company">AI Research Lab</div>
-              <div class="date">2021 - 2023</div>
+              <h3>Machine Learning Researcher</h3>
+              <div class="company">Mercity (Remote)</div>
+              <div class="date">August 2025 - November 2025</div>
               <p>
-                Developed and deployed computer vision models for real-time
-                object detection and tracking. Optimized inference pipelines
-                achieving 5x speed improvements through model quantization and
-                custom CUDA kernels.
+                Developed custom CUDA kernels to accelerate and optimize LLM
+                inference pipelines. Authored in-depth technical blogs on LLM
+                and diffusion models for the tech community. Focused on
+                hardware-aligned optimizations and efficient inference
+                strategies for production deployments.
               </p>
             </div>
           </div>
@@ -1124,13 +1137,16 @@
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Research Intern</h3>
-              <div class="company">University ML Lab</div>
-              <div class="date">2020 - 2021</div>
+              <h3>Community Member</h3>
+              <div class="company">Cohere Labs</div>
+              <div class="date">June 2025 - Present</div>
               <p>
-                Conducted research on neural architecture search and automated
-                machine learning. Published findings in top-tier conferences and
-                contributed to open-source AutoML frameworks.
+                Working on multiple research projects focused on LLM alignment,
+                model calibration, and mitigating sycophancy. Experimenting with
+                fine-tuning strategies, reasoning-focused LLMs, and implementing
+                state-of-the-art methods for improved alignment. Research
+                interests include fusion architectures, multimodal data, and
+                ensemble models.
               </p>
             </div>
           </div>
@@ -1138,13 +1154,48 @@
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Software Engineering Intern</h3>
-              <div class="company">Cloud Systems Inc</div>
-              <div class="date">2019 - 2020</div>
+              <h3>Research Internship</h3>
+              <div class="company">National University of Singapore</div>
+              <div class="date">August 2024 - January 2025</div>
               <p>
-                Built microservices for distributed data processing using Go and
-                Kubernetes. Implemented monitoring and observability solutions
-                for production systems handling millions of requests daily.
+                Worked on data unlearning in Diffusion Models, Memory Efficient
+                Radiance Fields, Gaussian splatting, and NeRF models under Prof.
+                Tan Wee Kek. Contributed to 3D sign language motion datasets and
+                explored character-level LLM applications. Focus areas: 3D
+                Computer Vision, Diffusion Models, and multimodal learning
+                systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Research Internship</h3>
+              <div class="company">National University of Singapore</div>
+              <div class="date">June 2024 - August 2024</div>
+              <p>
+                Worked on multimodal sentiment analysis research integrating
+                disentangled language focus model to handle modality
+                incongruence. Supervised by Prof. Tan Wee Kek and Prof.
+                Manoranjan Dash. Developed novel architectures for robust
+                multimodal fusion in noisy real-world scenarios.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Research Internship</h3>
+              <div class="company">Oryx AI (Stanford Stealth Startup)</div>
+              <div class="date">August 2024 - November 2024</div>
+              <p>
+                Developed ikshana, an automated speech-to-sign language system.
+                Worked on MLOps frameworks and AWS SageMaker for model
+                deployment. Focus areas: NLP, sequence models, speech
+                recognition, and accessible AI systems. Contributed to building
+                production-ready pipelines for real-time speech processing.
               </p>
             </div>
           </div>
@@ -1156,14 +1207,16 @@
     <section id="contact" class="fade-in">
       <div class="container">
         <div class="section-header">
-          <h2>Get In Touch</h2>
-          <p>Let's build something amazing together</p>
+          <h2>Contact</h2>
+          <p>Let's collaborate on advancing ML research</p>
         </div>
         <div class="contact-content">
           <p class="contact-text">
-            I'm always interested in hearing about new projects, research
-            collaborations, or opportunities to work on challenging problems at
-            the intersection of systems and ML. Feel free to reach out!
+            I'm actively seeking research opportunities and collaborations in
+            LLM alignment, multimodal learning, and 3D computer vision. Whether
+            you're looking for a research intern, want to discuss potential
+            projects, or just want to connect about ML research, feel free to
+            reach out!
           </p>
           <div class="social-links">
             <a
@@ -1184,7 +1237,7 @@
               </svg>
             </a>
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/mayank-kumar"
               class="social-link"
               target="_blank"
               title="LinkedIn"
@@ -1201,7 +1254,7 @@
               </svg>
             </a>
             <a
-              href="https://twitter.com/yourhandle"
+              href="https://twitter.com/mayank_kumar"
               class="social-link"
               target="_blank"
               title="Twitter"
@@ -1218,7 +1271,7 @@
               </svg>
             </a>
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:mayankdhruv42@gmail.com"
               class="social-link"
               title="Email"
             >
@@ -1234,9 +1287,18 @@
               </svg>
             </a>
           </div>
-          <a href="mailto:mayank@example.com" class="contact-email"
-            >mayank@example.com</a
+          <a href="mailto:mayankdhruv42@gmail.com" class="contact-email"
+            >mayankdhruv42@gmail.com</a
           >
+          <p
+            style="
+              margin-top: 2rem;
+              color: var(--text-secondary);
+              font-size: 0.9rem;
+            "
+          >
+            📍 Greater Noida, Uttar Pradesh, India | 📞 +91 82944 66003
+          </p>
         </div>
       </div>
     </section>
@@ -1245,7 +1307,8 @@
     <footer>
       <div class="container">
         <p>
-          &copy; 2025 Mayank Upadhyay. Built with code, caffeine, and curiosity.
+          &copy; 2025 Mayank Kumar. Advancing ML research one experiment at a
+          time.
         </p>
       </div>
     </footer>
@@ -1335,7 +1398,7 @@
           heroTitle.style.textShadow = `
                     ${Math.random() * 10 - 5}px ${
             Math.random() * 10 - 5
-          }px 0 rgba(255, 0, 110, 0.7),
+          }px 0 rgba(0, 217, 255, 0.7),
                     ${Math.random() * 10 - 5}px ${
             Math.random() * 10 - 5
           }px 0 rgba(0, 255, 159, 0.7)
