@@ -194,6 +194,18 @@
         z-index: 2;
       }
 
+      .hero-image {
+        margin-bottom: 3rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 280px;
+        height: auto;
+        object-fit: contain;
+      }
+
       .glitch-wrapper {
         position: relative;
         display: inline-block;
@@ -332,15 +344,15 @@
       }
 
       .about-content {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
+        display: flex;
+        justify-content: center;
         align-items: center;
       }
 
       .about-text {
         font-size: 1.1rem;
         line-height: 1.8;
+        max-width: 800px;
       }
 
       .about-text p {
@@ -749,6 +761,9 @@
     <section class="hero">
       <div class="container">
         <div class="hero-content">
+          <div class="hero-image">
+            <img src="M1.png" alt="Mayank Kumar" />
+          </div>
           <div class="glitch-wrapper">
             <h1>MAYANK <span class="highlight">KUMAR</span></h1>
           </div>
@@ -817,117 +832,6 @@
               <div class="tech-item">LangChain</div>
               <div class="tech-item">Docker</div>
             </div>
-          </div>
-          <div class="about-visual">
-            <svg width="100%" height="400" viewBox="0 0 400 400">
-              <defs>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop
-                    offset="0%"
-                    style="stop-color: rgb(0, 255, 159); stop-opacity: 0.8"
-                  />
-                  <stop
-                    offset="100%"
-                    style="stop-color: rgb(0, 217, 255); stop-opacity: 0.8"
-                  />
-                </linearGradient>
-              </defs>
-              <!-- Animated geometric shapes -->
-              <circle
-                cx="200"
-                cy="200"
-                r="80"
-                fill="none"
-                stroke="url(#grad1)"
-                stroke-width="2"
-                opacity="0.3"
-              >
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 200 200"
-                  to="360 200 200"
-                  dur="20s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle
-                cx="200"
-                cy="200"
-                r="120"
-                fill="none"
-                stroke="url(#grad1)"
-                stroke-width="2"
-                opacity="0.2"
-              >
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="360 200 200"
-                  to="0 200 200"
-                  dur="15s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle
-                cx="200"
-                cy="200"
-                r="160"
-                fill="none"
-                stroke="url(#grad1)"
-                stroke-width="2"
-                opacity="0.1"
-              >
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 200 200"
-                  to="360 200 200"
-                  dur="25s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <!-- Central node -->
-              <circle cx="200" cy="200" r="5" fill="#00ff9f">
-                <animate
-                  attributeName="r"
-                  values="5;8;5"
-                  dur="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <!-- Orbital nodes -->
-              <circle cx="280" cy="200" r="3" fill="#00d9ff">
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 200 200"
-                  to="360 200 200"
-                  dur="8s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle cx="120" cy="200" r="3" fill="#00ff9f">
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 200 200"
-                  to="360 200 200"
-                  dur="10s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle cx="200" cy="120" r="3" fill="#00d9ff">
-                <animateTransform
-                  attributeName="transform"
-                  type="rotate"
-                  from="0 200 200"
-                  to="360 200 200"
-                  dur="12s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-            </svg>
           </div>
         </div>
       </div>
