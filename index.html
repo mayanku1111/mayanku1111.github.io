@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Mayank Kumar — ML researcher working on LLM pretraining, inference optimization, and 3D computer vision."
+    />
     <title>Mayank Kumar — ML Researcher</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,11 +48,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-            90deg,
-            rgba(0, 255, 159, 0.03) 1px,
-            transparent 1px
-          ),
+        background:
+          linear-gradient(90deg, rgba(0, 255, 159, 0.03) 1px, transparent 1px),
           linear-gradient(rgba(0, 255, 159, 0.03) 1px, transparent 1px);
         background-size: 50px 50px;
         z-index: 0;
@@ -62,6 +63,17 @@
         100% {
           transform: translateY(50px);
         }
+      }
+
+      /* Lightning strike canvas */
+      .lightning-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
       }
 
       /* Floating particles */
@@ -179,6 +191,45 @@
         width: 100%;
       }
 
+      .nav-links a.active {
+        color: var(--primary);
+      }
+
+      .nav-links a.active::after {
+        width: 100%;
+      }
+
+      /* Mobile nav toggle */
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        z-index: 101;
+      }
+
+      .nav-toggle span {
+        width: 24px;
+        height: 2px;
+        background: var(--primary);
+        transition: all 0.3s ease;
+      }
+
+      .nav-toggle.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
       /* Hero Section */
       .hero {
         min-height: 100vh;
@@ -294,10 +345,116 @@
         box-shadow: 0 0 20px var(--accent-blue);
       }
 
+      /* Now block (current focus terminal card) */
+      .now-block {
+        max-width: 560px;
+        margin: 3rem auto 0;
+        text-align: left;
+        background: rgba(0, 255, 159, 0.04);
+        border: 1px solid rgba(0, 255, 159, 0.25);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .now-block-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1rem;
+        background: rgba(0, 255, 159, 0.08);
+        border-bottom: 1px solid rgba(0, 255, 159, 0.15);
+      }
+
+      .now-block-header .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+      .now-block-header .dot.red {
+        background: #ff5f56;
+      }
+
+      .now-block-header .dot.yellow {
+        background: #ffbd2e;
+      }
+
+      .now-block-header .dot.green {
+        background: #27c93f;
+      }
+
+      .now-block-header .now-title {
+        margin-left: 0.5rem;
+        font-size: 0.8rem;
+        color: var(--text-secondary);
+      }
+
+      .now-block-body {
+        padding: 1rem 1.25rem 1.25rem;
+      }
+
+      .now-block-body p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .now-block-body p:last-child {
+        margin-bottom: 0;
+      }
+
+      .now-block-body .prompt-arrow {
+        color: var(--secondary);
+        margin-right: 0.4rem;
+      }
+
+      .now-block-body .hl {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
       /* Section Styles */
-      section {
+      .page {
+        display: none;
         padding: 8rem 0;
         position: relative;
+      }
+
+      .page.active {
+        display: block;
+        animation: pageEnter 0.5s ease;
+      }
+
+      .hero.page {
+        padding: 0;
+        padding-top: 80px;
+      }
+
+      @keyframes pageEnter {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .page-path {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        letter-spacing: 0.5px;
+      }
+
+      .page-path .who {
+        color: var(--secondary);
+      }
+
+      .page-path .path {
+        color: var(--primary);
       }
 
       .section-header {
@@ -403,6 +560,31 @@
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        animation: cardIn 0.5s ease both;
+      }
+
+      .project-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .project-card:nth-child(2) {
+        animation-delay: 0.12s;
+      }
+      .project-card:nth-child(3) {
+        animation-delay: 0.19s;
+      }
+      .project-card:nth-child(4) {
+        animation-delay: 0.26s;
+      }
+
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
       .project-card::before {
@@ -517,6 +699,29 @@
         margin-bottom: 4rem;
         display: flex;
         align-items: center;
+        animation: cardIn 0.5s ease both;
+      }
+
+      .timeline-item:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .timeline-item:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .timeline-item:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .timeline-item:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .timeline-item:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .timeline-item:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+      .timeline-item:nth-child(7) {
+        animation-delay: 0.35s;
       }
 
       .timeline-item:nth-child(odd) {
@@ -664,6 +869,8 @@
         border-top: 1px solid rgba(0, 255, 159, 0.1);
         color: var(--text-secondary);
         font-size: 0.9rem;
+        position: relative;
+        z-index: 2;
       }
 
       /* Responsive */
@@ -703,21 +910,30 @@
           transform: translateX(0);
         }
 
-        .nav-links {
-          display: none;
+        .nav-toggle {
+          display: flex;
         }
-      }
 
-      /* Scroll animations */
-      .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-      }
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 70%;
+          max-width: 300px;
+          height: 100vh;
+          background: rgba(5, 8, 16, 0.98);
+          border-left: 1px solid rgba(0, 255, 159, 0.2);
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          padding: 2rem;
+          gap: 2rem;
+          transition: right 0.3s ease;
+        }
 
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+        .nav-links.open {
+          right: 0;
+        }
       }
 
       /* Custom Cursor Effect */
@@ -736,19 +952,33 @@
         z-index: 9999;
         transition: opacity 0.3s ease;
       }
+
+      @media (hover: none) {
+        .cursor-glow {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Background Effects -->
     <div class="grid-bg"></div>
+    <canvas class="lightning-canvas" id="lightningCanvas"></canvas>
     <div class="particles" id="particles"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
       <div class="container">
-        <div class="logo" onclick="scrollToTop()">MAYANK</div>
-        <ul class="nav-links">
+        <div class="logo" onclick="goToPage('home')">MAYANK</div>
+        <button
+          class="nav-toggle"
+          id="navToggle"
+          aria-label="Toggle navigation"
+        >
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -757,8 +987,8 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Home / Hero Page -->
+    <section class="hero page active" id="home">
       <div class="container">
         <div class="hero-content">
           <div class="hero-image">
@@ -779,13 +1009,37 @@
             <a href="#projects" class="btn">View Research</a>
             <a href="#contact" class="btn secondary">Get in Touch</a>
           </div>
+          <div class="now-block">
+            <div class="now-block-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="now-title">now.sh</span>
+            </div>
+            <div class="now-block-body">
+              <p>
+                <span class="prompt-arrow">&gt;</span> currently @
+                <span class="hl">BharatGen, IIT Bombay</span>
+              </p>
+              <p>
+                <span class="prompt-arrow">&gt;</span> pretraining a
+                <span class="hl">74B-parameter LLM</span> for India — IndiaAI
+                Mission
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="fade-in">
+    <!-- About Page -->
+    <section id="about" class="page">
       <div class="container">
+        <p class="page-path">
+          <span class="who">visitor@mayank</span>:<span class="path"
+            >~/about</span
+          >$
+        </p>
         <div class="section-header">
           <h2>About</h2>
           <p>
@@ -813,18 +1067,21 @@
               compute-efficient learning and sparse-view 3D reconstruction.
             </p>
             <p>
-              Currently, I'm working on
-              <span class="highlight">LLM reasoning </span>
-              at
-              <span class="highlight">IIT Bombay Trust Lab </span>, previously I
-              have worked at Mercity AI where I worked on text autoencoder using
-              state space models like DeltaNet and on inferential memory.
+              Currently, I'm at
+              <span class="highlight">BharatGen (IIT Bombay)</span>, pretraining
+              a <span class="highlight">74B-parameter LLM for India</span> as
+              part of the IndiaAI Mission. Previously, I worked on mechanistic
+              interpretability for LLM reasoning and on evaluation of LLMs and
+              agentic AI for medical reasoning at IIT Bombay Trust Lab and KCDH,
+              and before that at Mercity AI on text autoencoders using state
+              space models like DeltaNet and on inferential memory.
             </p>
             <div class="tech-stack">
               <div class="tech-item">Python</div>
               <div class="tech-item">CUDA C++</div>
               <div class="tech-item">PyTorch</div>
               <div class="tech-item">Triton Kernels</div>
+              <div class="tech-item">TileLang</div>
               <div class="tech-item">ML Systems</div>
               <div class="tech-item">Performance Engineering</div>
               <div class="tech-item">Agents</div>
@@ -834,9 +1091,14 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="fade-in">
+    <!-- Projects Page -->
+    <section id="projects" class="page">
       <div class="container">
+        <p class="page-path">
+          <span class="who">visitor@mayank</span>:<span class="path"
+            >~/projects</span
+          >$
+        </p>
         <div class="section-header">
           <h2>Research & Projects</h2>
           <p>Publications, ongoing research, and technical implementations</p>
@@ -919,21 +1181,24 @@
           <!-- Project 4 -->
           <div class="project-card">
             <div class="project-header">
-              <h3>LLM Debate via GRPO Training</h3>
-              <span class="project-type">Research</span>
+              <h3>
+                TileLang Kernels: Gated DeltaNet & Manifold Hyper-Connections
+              </h3>
+              <span class="project-type">Kernel Engineering</span>
             </div>
             <p>
-              Trained Qwen 2.5 1.5B using self-play training based on Group
-              Relative Policy Optimization (GRPO) to improve debating skills.
-              Evaluated using round-robin tournament judged by model instances,
-              enabling the model to learn from its own comparisons and improve
-              argumentative capabilities.
+              Writing custom TileLang kernels for Gated DeltaNet's chunked
+              delta-rule recurrence and for Manifold Hyper-Connections'
+              multi-stream residual mixing. Focused on tensor-core-aligned
+              tiling, fused gating computation, and closing the throughput gap
+              with hand-tuned Triton/CUDA baselines for next-generation
+              linear-attention architectures.
             </p>
             <div class="project-tags">
-              <span class="tag">LLM Alignment</span>
-              <span class="tag">RLHF</span>
-              <span class="tag">Self-Play</span>
-              <span class="tag">Reasoning</span>
+              <span class="tag">TileLang</span>
+              <span class="tag">GPU Kernels</span>
+              <span class="tag">State Space Models</span>
+              <span class="tag">Hardware Optimization</span>
             </div>
             <div class="project-links">
               <a href="https://github.com/mayanku1111" class="project-link"
@@ -941,63 +1206,18 @@
               >
             </div>
           </div>
-
-          <!-- Project 5 -->
-          <div class="project-card">
-            <div class="project-header">
-              <h3>Deep Research Agent with MCP</h3>
-              <span class="project-type">Tool</span>
-            </div>
-            <p>
-              Built an intelligent deep research agent that autonomously
-              conducts web research and generates follow-up queries. Integrated
-              Model Context Protocol (MCP) tools into a Next.js interface with
-              multi-node LangGraph architecture featuring LLM invocation, tool
-              execution, and validation steps. Used Exa API for web queries.
-            </p>
-            <div class="project-tags">
-              <span class="tag">LangChain</span>
-              <span class="tag">MCP</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">AI Agents</span>
-            </div>
-            <div class="project-links">
-              <a href="https://github.com/mayanku1111" class="project-link"
-                >→ View Demo</a
-              >
-            </div>
-          </div>
-
-          <!-- Project 6 -->
-          <div class="project-card">
-            <div class="project-header">
-              <h3>ikshana: Speech to Sign Language</h3>
-              <span class="project-type">NUS Singapore</span>
-            </div>
-            <p>
-              Developed an automated speech-to-sign language system at Oryx AI
-              (Stanford stealth startup). Worked on sequence models, speech
-              recognition, and 3D sign language motion datasets. Implemented
-              MLOps frameworks and AWS SageMaker pipelines for model deployment
-              and monitoring.
-            </p>
-            <div class="project-tags">
-              <span class="tag">Speech Recognition</span>
-              <span class="tag">3D Motion</span>
-              <span class="tag">Accessibility</span>
-              <span class="tag">MLOps</span>
-            </div>
-            <div class="project-links">
-              <a href="#" class="project-link">→ Learn More</a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="fade-in">
+    <!-- Experience Page -->
+    <section id="experience" class="page">
       <div class="container">
+        <p class="page-path">
+          <span class="who">visitor@mayank</span>:<span class="path"
+            >~/experience</span
+          >$
+        </p>
         <div class="section-header">
           <h2>Experience</h2>
           <p>Research positions and community contributions</p>
@@ -1007,14 +1227,33 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Research Internship</h3>
-              <div class="company">IIT Bombay Trust Lab</div>
-              <div class="date">December 2025 - Present</div>
+              <div class="company">BharatGen, IIT Bombay</div>
+              <div class="date">April 2026 - Present</div>
               <p>
-                Beginning research on LLM reasoning for medical applications
-                under the supervision of Mukul Joshi. Focusing on improving
-                reasoning capabilities of language models in specialized medical
-                contexts, working on prompt engineering and fine-tuning
-                strategies for healthcare domain adaptation.
+                Working on pretraining a 74-billion-parameter large language
+                model for India as part of the IndiaAI Mission, under IIT
+                Bombay's sovereign AI initiative BharatGen. Focused on
+                large-scale distributed pretraining, data pipelines, and
+                architecture experiments for an Indic-first foundation model.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Research Internship</h3>
+              <div class="company">
+                IIT Bombay Trust Lab &amp; KCDH (Koita Centre for Digital
+                Health)
+              </div>
+              <div class="date">December 2025 - March 2026</div>
+              <p>
+                Worked on mechanistic interpretability for LLM reasoning and on
+                evaluation of LLMs and agentic AI systems for medical reasoning,
+                under the supervision of Mukul Joshi, a collaborative project
+                between IIT Bombay Trust Lab and the Koita Centre for Digital
+                Health (KCDH), joining KCDH from January 2026.
               </p>
             </div>
           </div>
@@ -1104,18 +1343,23 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="fade-in">
+    <!-- Contact Page -->
+    <section id="contact" class="page">
       <div class="container">
+        <p class="page-path">
+          <span class="who">visitor@mayank</span>:<span class="path"
+            >~/contact</span
+          >$
+        </p>
         <div class="section-header">
           <h2>Contact</h2>
           <!-- <p>Let's collaborate on advancing ML research</p> -->
         </div>
         <div class="contact-content">
           <p class="contact-text">
-            My major interest nowadays is in LLM reasoning, inference
-            optimization and multimodal learning.If you want to discuss research
-            ideas, feel free to reach out!
+            My major interest nowadays is in Large scale training, LLM
+            optimization and reasoning.If you want to discuss research ideas,
+            feel free to reach out!
           </p>
           <div class="social-links">
             <a
@@ -1244,66 +1488,176 @@
         }
       });
 
-      // Smooth scroll
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
+      // Mobile nav toggle
+      const navToggle = document.getElementById("navToggle");
+      const navLinksEl = document.getElementById("navLinks");
+      navToggle.addEventListener("click", () => {
+        navToggle.classList.toggle("open");
+        navLinksEl.classList.toggle("open");
+      });
+      function closeMobileMenu() {
+        navToggle.classList.remove("open");
+        navLinksEl.classList.remove("open");
+      }
+
+      // Page router — swaps full "pages" in/out instead of one long scroll
+      const pages = document.querySelectorAll(".page");
+      const navAnchors = document.querySelectorAll('a[href^="#"]');
+      let currentPage = "home";
+
+      function goToPage(pageId, pushHash) {
+        if (pushHash === undefined) pushHash = true;
+        const target = document.getElementById(pageId) ? pageId : "home";
+        pages.forEach((p) => p.classList.remove("active"));
+        document
+          .querySelectorAll(".nav-links a")
+          .forEach((a) => a.classList.remove("active"));
+
+        document.getElementById(target).classList.add("active");
+        const activeLink = document.querySelector(
+          '.nav-links a[href="#' + target + '"]',
+        );
+        if (activeLink) activeLink.classList.add("active");
+
+        if (pushHash) location.hash = target;
+        window.scrollTo({ top: 0, behavior: "instant" });
+        currentPage = target;
+        closeMobileMenu();
+      }
+
+      navAnchors.forEach((a) => {
+        a.addEventListener("click", (e) => {
           e.preventDefault();
-          const target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
+          goToPage(a.getAttribute("href").slice(1));
         });
       });
 
-      // Scroll to top
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }
-
-      // Intersection Observer for fade-in animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -100px 0px",
-      };
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
+      window.addEventListener("hashchange", () => {
+        goToPage(location.hash.slice(1) || "home", false);
       });
 
       // Initialize
       createParticles();
+      goToPage(location.hash.slice(1) || "home", false);
 
-      // Glitch effect on hero text (optional enhancement)
+      // Glitch effect on hero text
       const heroTitle = document.querySelector(".hero h1");
       setInterval(() => {
         if (Math.random() > 0.95) {
           heroTitle.style.textShadow = `
                     ${Math.random() * 10 - 5}px ${
-            Math.random() * 10 - 5
-          }px 0 rgba(0, 217, 255, 0.7),
+                      Math.random() * 10 - 5
+                    }px 0 rgba(0, 217, 255, 0.7),
                     ${Math.random() * 10 - 5}px ${
-            Math.random() * 10 - 5
-          }px 0 rgba(0, 255, 159, 0.7)
+                      Math.random() * 10 - 5
+                    }px 0 rgba(0, 255, 159, 0.7)
                 `;
           setTimeout(() => {
             heroTitle.style.textShadow = "none";
           }, 50);
         }
       }, 2000);
+
+      // Lightning strike effect — jagged procedural bolts across the hero
+      const boltCanvas = document.getElementById("lightningCanvas");
+      const boltCtx = boltCanvas.getContext("2d");
+
+      function resizeBoltCanvas() {
+        boltCanvas.width = window.innerWidth;
+        boltCanvas.height = window.innerHeight;
+      }
+      window.addEventListener("resize", resizeBoltCanvas);
+      resizeBoltCanvas();
+
+      function generateBoltPath(x1, y1, x2, y2, displace, depth) {
+        if (depth <= 0 || displace < 3) {
+          return [
+            [x1, y1],
+            [x2, y2],
+          ];
+        }
+        const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * displace;
+        const midY = (y1 + y2) / 2 + (Math.random() - 0.5) * displace * 0.3;
+        const left = generateBoltPath(
+          x1,
+          y1,
+          midX,
+          midY,
+          displace / 2,
+          depth - 1,
+        );
+        const right = generateBoltPath(
+          midX,
+          midY,
+          x2,
+          y2,
+          displace / 2,
+          depth - 1,
+        );
+        return left.slice(0, -1).concat(right);
+      }
+
+      function drawBoltPath(points, color, width, alpha) {
+        boltCtx.beginPath();
+        boltCtx.moveTo(points[0][0], points[0][1]);
+        for (let i = 1; i < points.length; i++) {
+          boltCtx.lineTo(points[i][0], points[i][1]);
+        }
+        boltCtx.strokeStyle = color;
+        boltCtx.lineWidth = width;
+        boltCtx.globalAlpha = alpha;
+        boltCtx.shadowBlur = 18;
+        boltCtx.shadowColor = color;
+        boltCtx.stroke();
+      }
+
+      function strikeLightning() {
+        if (currentPage !== "home") return;
+
+        const startX = Math.random() * boltCanvas.width;
+        const endX = startX + (Math.random() - 0.5) * 260;
+        const endY = boltCanvas.height * (0.35 + Math.random() * 0.4);
+        const mainBolt = generateBoltPath(startX, 0, endX, endY, 180, 6);
+
+        let branch = null;
+        if (Math.random() > 0.4) {
+          const branchStart = mainBolt[Math.floor(mainBolt.length / 2)];
+          branch = generateBoltPath(
+            branchStart[0],
+            branchStart[1],
+            branchStart[0] + (Math.random() - 0.5) * 200,
+            branchStart[1] + boltCanvas.height * 0.2,
+            100,
+            4,
+          );
+        }
+
+        let frame = 0;
+        const maxFrames = 7;
+        function animate() {
+          boltCtx.clearRect(0, 0, boltCanvas.width, boltCanvas.height);
+          if (frame < maxFrames && currentPage === "home") {
+            const alpha = 1 - frame / maxFrames;
+            drawBoltPath(mainBolt, "#00ff9f", 2, alpha);
+            if (branch) drawBoltPath(branch, "#00d9ff", 1.2, alpha * 0.7);
+            boltCtx.globalAlpha = 1;
+            frame++;
+            requestAnimationFrame(animate);
+          } else {
+            boltCtx.clearRect(0, 0, boltCanvas.width, boltCanvas.height);
+          }
+        }
+        animate();
+      }
+
+      function scheduleLightning() {
+        const delay = 4000 + Math.random() * 7000;
+        setTimeout(() => {
+          strikeLightning();
+          scheduleLightning();
+        }, delay);
+      }
+      scheduleLightning();
     </script>
   </body>
 </html>
